@@ -7,7 +7,7 @@ YELLOW = "\033[38;2;255;241;0m"
 GREEN = "\033[38;2;0;255;0m"
 RESET = "\033[0m"
 
-print(f"{YELLOW}  _____ ____   _____ _____           _    _____")
+print(f"{YELLOW}   _____ ____   _____ _____           _    _____")
 print(f" / ____|  _ \ / ____|  __ \         | |  / ____|")
 print(f"| (___ | |_) | (___ | |__) |__  _ __| |_| (___   ___ __ _ _ __  _ __   ___ _ __")
 print(f" \___ \|  _ < \___ \|  ___/ _ \| '__| __|\___ \ / __/ _` | '_ \| '_ \ / _ \ '__|")
@@ -34,19 +34,14 @@ print(f"{YELLOW}Your Bus Is Nearing Your Stop!{RESET}")
 if open_ports:
     ports_str = ','.join(map(str, open_ports))
     nmap_cmd = f"nmap -sC -sV {ip} -p {ports_str}"
-    subprocess.call([f"{nmap_cmd}"])
-
-    banner = f"""{YELLOW}
-___________________
-|,-----.,-----.,---.\\
-||     ||     ||    \\
-|`-----'|-----||-----\`----.
-[       |    -||-   _|    (|
-[  ,--. |_____||___/.--.   |
-=-(( `))-----------(( `))-==
-   `--'             `--'
-        
-Your Bus Has Arrived! Beep Beep!{RESET}
-        """
-
-print(banner)
+    subprocess.call(nmap_cmd, shell=True)
+print(f"{YELLOW}___________________")
+print(f"|,-----.,-----.,---.\\")
+print(f"||     ||     ||    \\")
+print(f"|`-----'|-----||-----\`----.")
+print(f"[       |    -||-   _|    (|")
+print(f"[  ,--. |_____||___/.--.   |")
+print(f"=-(( `))-----------(( `))-==")
+print(f"   `--'             `--'")
+print(f"{YELLOW}Your Bus Has Arrived! Beep Beep!{RESET}")
+print(RESET)
